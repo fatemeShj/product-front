@@ -10,20 +10,17 @@ function App() {
     fetch(`${URL}/api/products`)
       .then((res) => res.json())
       .then((response) => {
-        setProducts(response); // Set the entire response object
+        setProducts(response);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
   }, []);
 
-  console.log("products=>", products.data);
-  console.log("productsLeng=>", products.data.length);
-
   return (
     <div>
       <h1>Products</h1>
-      {products.data.length > 0 ? ( // Check `products.data.length`
+      {products.data.length > 0 ? (
         <ul>
           {products.data.map((product) => (
             <li key={product.id}>
